@@ -1,4 +1,4 @@
-package pages;
+package businessLogic.pages.ui.pageObject;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -16,7 +16,7 @@ public class elibAddBookPage extends PageObject {
     private WebElementFacade fieldIsbn;
     @FindBy(name="publishLanguage")
     private WebElementFacade fieldLanguagePublish;
-    @FindBy (xpath ="//ng-view//form/div[6]/div[2]/select")
+    @FindBy (xpath ="//option[@value='1'][3]")
     private WebElementFacade fieldLanguageOriginal;
     @FindBy (name="publisher")
     private WebElementFacade fieldPublisher;
