@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1329921-2b19-47af-a4e4-90166598bf7e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/exceptions/UnknownDriversTypeException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/UnknownDriversTypeExceptio.java" />
+      <change type="DELETED" beforePath="D:\4AllProjectJava\elib\src\main\java\exceptions\UnknownDriversTypeException.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/Driver.java" afterPath="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/DriversType.java" afterPath="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/DriversType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="elib.iws" />
@@ -33,8 +33,8 @@
       <file leaf-file-name="Driver.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5263761" vertical-offset="0" max-vertical-offset="872">
-              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.79931194" vertical-offset="0" max-vertical-offset="872">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,6 +71,8 @@
         <option value="$PROJECT_DIR$/src/main/exceptions/UnknowDriversTypeException.java" />
         <option value="$PROJECT_DIR$/src/main/exceptions/UnknownDriversTypeException.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/DriversType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/UnknownDriversTypeException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/UnknownDriversTypeExceptio.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/Driver.java" />
       </list>
     </option>
@@ -193,32 +195,6 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exceptions" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elib" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -290,6 +266,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\4AllProjectJava\elib\src\main\java\businessLogic" />
       <recent name="C:\Users\Irinka\IdeaProjects\elib\src\test" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="businessLogic.pages.ui.webdriver" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\4AllProjectJava\elib\src\main\java" />
@@ -495,7 +474,11 @@
       <created>1445335258461</created>
       <updated>1445335258461</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="version 1.02 add class driver">
+      <created>1445338524440</created>
+      <updated>1445338524440</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -545,7 +528,8 @@
     </option>
     <MESSAGE value="version 1" />
     <MESSAGE value="version 1.01 addBook to change" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 1.01 addBook to change" />
+    <MESSAGE value="version 1.02 add class driver" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 1.02 add class driver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -624,21 +608,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/UnknownDriversTypeException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/UnknownDriversTypeExceptio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.038990825" vertical-offset="0" max-vertical-offset="872">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="39" />
-          <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#166#167#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.1559633" vertical-offset="0" max-vertical-offset="872">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/businessLogic/pages/ui/webdriver/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5263761" vertical-offset="0" max-vertical-offset="872">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.79931194" vertical-offset="0" max-vertical-offset="872">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

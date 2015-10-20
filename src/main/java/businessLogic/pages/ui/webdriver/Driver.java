@@ -6,18 +6,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class Driver {
     private static final String DEFAULT_WEB_DRIVER = "DEFAULT_WEB_DRIVER";
     private static DriversType defaultWebDriver = DriversType.FIREFOX;
-    private static HashMap<String,WebDriver> instances;
-    static{
-        instances=new HashMap<String,WebDriver>();
+    private static HashMap<String, WebDriver> instances;
+
+    static {
+        instances = new HashMap<String, WebDriver>();
     }
-    public static WebDriver getWebDriverInstance(String name, DriversType driversType){
+
+    public static WebDriver getWebDriverInstance(String name, DriversType driversType) {
         WebDriver driver;
-        if(!instances.containsKey(name)){
-            switch (driversType){
+        if (!instances.containsKey(name)) {
+            switch (driversType) {
                 case FIREFOX:
                     driver = new FirefoxDriver();
                     break;
@@ -25,10 +28,14 @@ public class Driver {
                     driver = new ChromeDriver();
                     break;
                 default:
-                    throw new UnknownDriversTypeExceptio("Unknown webDriver specified: "+DriversType.getDriverName());
+                    throw new UnknownDriversTypeExceptio("Unknown webDriver specified: " + driversType.getDriverName());
             }
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            instances.put(name,driver);
+        }else{
+            driver=instances.get(name);
         }
-        return null;
+        return driver;
     }
 
-  }
+}
