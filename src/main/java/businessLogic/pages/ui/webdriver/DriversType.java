@@ -1,7 +1,15 @@
 package businessLogic.pages.ui.webdriver;
 
-/**
- * Created by Iryna_Koryttseva on 10/20/2015.
- */
-public class DriversType {
+public enum DriversType {
+    FIREFOX("firefox"), CHROM("chrom");
+    private String driverName;
+
+    //designer
+    private DriversType(String driverName) {
+        this.driverName = driverName;
+    }
+
+       public String getDriverName() {
+        return this.driverName;
+    }
 }
