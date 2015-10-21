@@ -37,5 +37,10 @@ public class Driver {
         }
         return driver;
     }
-
+    public static WebDriver getWebDriverInstance(String name){
+        return getWebDriverInstance(name, defaultWebDriver);
+    }
+    public static WebDriver getWebDriverInstance(){
+        return getWebDriverInstance(DEFAULT_WEB_DRIVER,defaultWebDriver);
+    }
 }
