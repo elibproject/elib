@@ -16,7 +16,7 @@ public class addComment {
         @Before
         public void setUp() throws Exception {
             driver = Driver.getWebDriverInstance();
-            driver.get("http://ecsc00101f71.epam.com/books/7");
+            driver.get("http://ecsc00101f71.epam.com/books/1");
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
        @Test
@@ -24,6 +24,7 @@ public class addComment {
           for (int i=0;i<20;i++){
                driver.findElement(By.xpath("//ng-view//form//textarea")).sendKeys("zoo");
                driver.findElement(By.xpath("//ng-view//form//input[2]")).click();
+
           }
        }
 

@@ -4,28 +4,27 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * Created by Irinka on 10/19/2015.
- */
 public class elibAddBookPage extends PageObject {
-    @FindBy(name="title")
+    @FindBy(id="title")
     private WebElementFacade fieldTitle;
-    @FindBy(name="authors")
-    private WebElementFacade fieldAuttors;
-    @FindBy (name="isbn")
+    @FindBy(id="authors")
+    private WebElementFacade fieldAuthors;
+    @FindBy (id="isbn")
     private WebElementFacade fieldIsbn;
-    @FindBy(name="publishLanguage")
+    @FindBy(id="publishLang")
     private WebElementFacade fieldLanguagePublish;
-    @FindBy (xpath ="//option[@value='1'][3]")
+    @FindBy (id ="originLang")
     private WebElementFacade fieldLanguageOriginal;
     @FindBy (name="publisher")
     private WebElementFacade fieldPublisher;
-    @FindBy (name="yearOfPublishing")
+    @FindBy (id="publishYear")
     private WebElementFacade fieldYearOfPublisher;
-    @FindBy (name="Category")
+    @FindBy (id="category")
     private WebElementFacade fieldCategory;
-    @FindBy (name="subgenre")
+    @FindBy (id="subgenre")
     private WebElementFacade fieldSubgenre;
-    @FindBy (xpath=".//*[@id='description']")
+    @FindBy (id="description")
     private WebElementFacade fieldDescription;
+    @FindBy(id="submit")
+    private WebElementFacade buttonSubmit;
 }
