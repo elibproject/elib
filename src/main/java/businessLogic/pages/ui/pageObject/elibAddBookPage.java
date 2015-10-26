@@ -4,6 +4,8 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
+import static com.gargoylesoftware.htmlunit.WebAssert.assertElementPresent;
+
 public class elibAddBookPage extends PageObject {
     @FindBy(id="title")
     private WebElementFacade fieldTitle;
@@ -27,4 +29,33 @@ public class elibAddBookPage extends PageObject {
     private WebElementFacade fieldDescription;
     @FindBy(id="submit")
     private WebElementFacade buttonSubmit;
+
+   /* public void addFieldSubqenre(){    DROPDOWN MENU!!!!
+        if(fieldSubgenre.isDisplayed()){
+            fieldSubgenre.click();
+            fieldSubgenre.clear();
+            fieldSubgenre.sendKeys();
+        }else{
+            System.out.println("Not found element fieldDescription");
+        }
+    }*/
+
+    public void addFieldDescription(){
+       // assertElementPresent.fieldDescription.click();
+            fieldDescription.clear();
+            fieldDescription.sendKeys();
+        }
+           // System.out.println("Not found element fieldSubgenre");
+
+
+
+
+    public void clickButtonSubmit(){
+        if (buttonSubmit.isDisplayed()){
+            buttonSubmit.click();
+        }else{
+            System.out.println("Not found element buttonSubmit");
+        }
+    }
+
 }

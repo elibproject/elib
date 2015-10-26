@@ -13,7 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class addComment {
         private WebDriver driver;
 
-        @Before
+      @Before
         public void setUp() throws Exception {
             driver = Driver.getWebDriverInstance();
             driver.get("http://ecsc00101f71.epam.com/books/1");
