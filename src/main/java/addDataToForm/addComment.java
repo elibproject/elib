@@ -16,8 +16,9 @@ public class addComment {
       @Before
         public void setUp() throws Exception {
             driver = Driver.getWebDriverInstance();
-            driver.get("http://ecsc00101f71.epam.com/books/1");
+            driver.get("http://ecsc00101f71.epam.com/");
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
         }
        @Test
        public void addContextComment(){

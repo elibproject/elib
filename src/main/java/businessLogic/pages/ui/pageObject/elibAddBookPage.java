@@ -26,9 +26,9 @@ public class elibAddBookPage extends PageObject {
     @FindBy (id="subgenre")
     private WebElementFacade fieldSubgenre;
     @FindBy (id="description")
-    private WebElementFacade fieldDescription;
+    private WebElementFacade fieldDescriptionAddBookPage;
     @FindBy(id="submit")
-    private WebElementFacade buttonSubmit;
+    private WebElementFacade buttonSubmitAddBookPage;
 
    /* public void addFieldSubqenre(){    DROPDOWN MENU!!!!
         if(fieldSubgenre.isDisplayed()){
@@ -42,8 +42,8 @@ public class elibAddBookPage extends PageObject {
 
     public void addFieldDescription(){
        // assertElementPresent.fieldDescription.click();
-            fieldDescription.clear();
-            fieldDescription.sendKeys();
+        fieldDescriptionAddBookPage.clear();
+        fieldDescriptionAddBookPage.sendKeys();
         }
            // System.out.println("Not found element fieldSubgenre");
 
@@ -51,8 +51,8 @@ public class elibAddBookPage extends PageObject {
 
 
     public void clickButtonSubmit(){
-        if (buttonSubmit.isDisplayed()){
-            buttonSubmit.click();
+        if (buttonSubmitAddBookPage.isDisplayed()){
+            buttonSubmitAddBookPage.click();
         }else{
             System.out.println("Not found element buttonSubmit");
         }
