@@ -5,7 +5,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
 
-public class elibSingUpPage extends PageObject {
+public class SingUpPage extends PageObject {
     @FindBy(xpath = "//input[@name='userName']")
     private WebElementFacade fieldLoginSingUp;
     @FindBy(xpath = "//input[@name='email']")

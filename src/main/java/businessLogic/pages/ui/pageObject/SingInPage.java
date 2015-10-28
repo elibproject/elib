@@ -4,7 +4,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
-public class elibSingInPage extends PageObject {
+public class SingInPage extends PageObject {
     
     @FindBy(name = "userName")
     private WebElementFacade fieldLogin;

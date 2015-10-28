@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static com.gargoylesoftware.htmlunit.WebAssert.assertElementPresent;
 
-public class elibAddBookPage extends PageObject {
+public class AddBookPage extends PageObject {
     @FindBy(id="title")
     private WebElementFacade fieldTitle;
     @FindBy(id="authors")

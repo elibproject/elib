@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 
 @DefaultUrl("http://ecsc00101f71.epam.com/")
-public class elibMainPage extends PageObject {
+public class MainPage extends PageObject {
     @FindBy(linkText = "ELib")
     private WebElementFacade linkElibMain;
     @FindBy(linkText = "Books")

@@ -6,7 +6,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 
 
-public class elibAddAuthorsPage extends PageObject {
+public class AddAuthorsPage extends PageObject {
     @FindBy(id = "first-name")
     private WebElementFacade fieldFirstName;
     @FindBy(id = "last-name")
