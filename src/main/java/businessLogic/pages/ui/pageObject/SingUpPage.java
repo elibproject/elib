@@ -67,17 +67,43 @@ public class SingUpPage extends PageObject {
     }
 
 
-    public boolean getMessageUserNameRequired() {
+    public String getMessageUserNameRequired() {
+        String actualMessageUserName="";
+        if(messageUserNameRequired.isDisplayed()){
+           actualMessageUserName=messageUserNameRequired.getText();
+        }else{
+            System.out.println("Not found WebElement: messageUserNameRequired");
+        }
+        return actualMessageUserName;
     }
 
-    public boolean getMessageEmailRequired() {
+    public String getMessageEmailRequired() {
+        String actualMessageEmailRequired="";
+        if(mesageEmailRequired.isDisplayed()){
+            actualMessageEmailRequired=mesageEmailRequired.getText();
+        }else{
+            System.out.println("Not found WebElement: mesageEmailRequired");
+        }
+        return actualMessageEmailRequired;
     }
 
     public String getMessageEmailInvalid() {
-        return null;
+        String actualMessageEmailInvalid="";
+        if(messageEmailInvalid.isDisplayed()){
+            actualMessageEmailInvalid=messageEmailInvalid.getText();
+        }else{
+            System.out.println("Not found WebElement: messageEmailInvalid");
+        }
+        return actualMessageEmailInvalid;
     }
 
-    public boolean getMessagePasswordRequired() {
-        return false;
+    public String getMessagePasswordRequired() {
+        String actualMessagePasswordRequired="";
+        if(messagePasswordRequired.isDisplayed()){
+            actualMessagePasswordRequired=messagePasswordRequired.getText();
+        }else{
+            System.out.println("Not found WebElement: messagePasswordRequired");
+        }
+        return actualMessagePasswordRequired;
     }
 }
