@@ -5,17 +5,23 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
 public class SingInPage extends PageObject {
-    
-    @FindBy(name = "userName")
+
+    @FindBy(xpath = "//input[@name='userName']")
     private WebElementFacade fieldLogin;
-    @FindBy(name = "password")
+    @FindBy(xpath = "//input[@name='password']")
     private WebElementFacade fieldPassword;
-    @FindBy(linkText = "Forgot your password?")
+    @FindBy(xpath = "//*[a='Forgot your password?']")
     private WebElementFacade linkForgotYourPassword;
-    @FindBy(linkText = "Sign Up")
+    @FindBy(xpath = "//*[a='Sign Up']")
     private WebElementFacade linkSingUp;
-    @FindBy(className = "btn btn-primary btn-md btn-block")
+    @FindBy(xpath = "//button[@data-ng-click='loginCtrl.login()']")
     private WebElementFacade buttonSingIn;
+    @FindBy(xpath = "//*[@id='loginModal']//label[@ng-show='loginForm.userName.$error.required']")
+    private WebElementFacade messageLoginEmpty;
+    @FindBy(xpath = "//*[@id='loginModal']//label[@ng-show='loginForm.password.$error.required']")
+    private WebElementFacade messagePasswordEmpty;
+    @FindBy(xpath = "//*[@id='loginModal']//div[@class='alert alert-danger ng-binding']")
+    private WebElementFacade messagePasswordWrong;
 
     public void setFieldLogin(String userName) {
         if (fieldLogin.isDisplayed()) {
@@ -26,14 +32,40 @@ public class SingInPage extends PageObject {
         }
     }
 
-    public void setFieldPassword(String password){
-        if (fieldPassword.isDisplayed()){
+    public void setFieldPassword(String password) {
+        if (fieldPassword.isDisplayed()) {
             fieldPassword.clear();
             fieldPassword.sendKeys(password);
-        }else{
+        } else {
             System.out.println("Not found WebElement: fieldPassword");
         }
     }
 
+    public void clickButtonSingIn() {
+        if (buttonSingIn.isDisplayed()) {
+            if (buttonSingIn.isEnabled()) {
+                buttonSingIn.click();
+            } else {
+                System.out.println("The buttonSingIn is not enabled");
+            }
+        } else {
+            System.out.println("Not found WebElement: buttonSingIn");
+        }
+    }
 
+    public void clickLinkForgotYourPassword() {
+        if (linkForgotYourPassword.isEnabled()) {
+            linkForgotYourPassword.click();
+        } else {
+            System.out.println("Not found WebElement: linkForgotYourPassword");
+        }
+    }
+
+    public void clickLinkSingUp() {
+        if (linkSingUp.isDisplayed()) {
+            linkSingUp.click();
+        } else {
+            System.out.println("Not found WebElement: linkSingUp");
+        }
+    }
 }
