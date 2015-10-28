@@ -65,4 +65,19 @@ public class SingUpPage extends PageObject {
             System.out.println("Not found WebElement: buttonSingUp");
         }
     }
+
+
+    public boolean getMessageUserNameRequired() {
+    }
+
+    public boolean getMessageEmailRequired() {
+    }
+
+    public String getMessageEmailInvalid() {
+        return null;
+    }
+
+    public boolean getMessagePasswordRequired() {
+        return false;
+    }
 }
