@@ -9,6 +9,23 @@ public class elibAddPublisherPage extends PageObject {
     @FindBy (id="Name")
     private WebElementFacade fieldNamePublisher;
     @FindBy (id="submit")
-    private WebElementFacade buttonSubmitAddPublisherPage;
+    private WebElementFacade buttonSubmitAddPublisher;
+
+    public void clickButtonSubmitAddPublisher(){
+        if(buttonSubmitAddPublisher.isDisplayed()){
+            buttonSubmitAddPublisher.click();
+        }else{
+            System.out.println("Not found WebElement: buttonSubmitAddPublisher");
+        }
+    }
+
+    public void setFieldNamePublisher(String namePublisher) {
+        if (fieldNamePublisher.isDisplayed()) {
+            fieldNamePublisher.clear();
+            fieldNamePublisher.sendKeys(namePublisher);
+        } else {
+            System.out.println("Not found WebElement: fieldNamePublisher");
+        }
+    }
 
 }

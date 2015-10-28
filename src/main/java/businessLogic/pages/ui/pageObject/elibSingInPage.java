@@ -10,32 +10,30 @@ public class elibSingInPage extends PageObject {
     private WebElementFacade fieldLogin;
     @FindBy(name = "password")
     private WebElementFacade fieldPassword;
-    @FindBy(className = "btn btn-primary btn-md btn-block")
-    private WebElementFacade buttonSingIn;
     @FindBy(linkText = "Forgot your password?")
     private WebElementFacade linkForgotYourPassword;
     @FindBy(linkText = "Sign Up")
     private WebElementFacade linkSingUp;
+    @FindBy(className = "btn btn-primary btn-md btn-block")
+    private WebElementFacade buttonSingIn;
 
-    /*
-    //methods for elements
-    public WebElementFacade getFieldLogin() {
-        return fieldLogin;
+    public void setFieldLogin(String userName) {
+        if (fieldLogin.isDisplayed()) {
+            fieldLogin.clear();
+            fieldLogin.sendKeys(userName);
+        } else {
+            System.out.println("Not found WebElement: fieldLogin");
+        }
     }
 
-    public void setFieldLogin(WebElementFacade fieldLogin) {
-        this.fieldLogin = fieldLogin;
+    public void setFieldPassword(String password){
+        if (fieldPassword.isDisplayed()){
+            fieldPassword.clear();
+            fieldPassword.sendKeys(password);
+        }else{
+            System.out.println("Not found WebElement: fieldPassword");
+        }
     }
 
-    public WebElementFacade getFieldPassword() {
-        return fieldPassword;
-    }
 
-    public void setFieldPassword(WebElementFacade fieldPassword) {
-        this.fieldPassword = fieldPassword;
-    }
-
-    public void clickButtonRegistration() {
-        buttonSingIn.click();
-    }*/
 }
