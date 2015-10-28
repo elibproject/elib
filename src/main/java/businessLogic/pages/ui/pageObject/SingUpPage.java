@@ -66,42 +66,41 @@ public class SingUpPage extends PageObject {
         }
     }
 
-
     public String getMessageUserNameRequired() {
-        String actualMessageUserName="";
-        if(messageUserNameRequired.isDisplayed()){
-           actualMessageUserName=messageUserNameRequired.getText();
-        }else{
+        String actualMessageUserName = "";
+        if (messageUserNameRequired.isDisplayed()) {
+            actualMessageUserName = messageUserNameRequired.getText();
+        } else {
             System.out.println("Not found WebElement: messageUserNameRequired");
         }
         return actualMessageUserName;
     }
 
     public String getMessageEmailRequired() {
-        String actualMessageEmailRequired="";
-        if(mesageEmailRequired.isDisplayed()){
-            actualMessageEmailRequired=mesageEmailRequired.getText();
-        }else{
+        String actualMessageEmailRequired = "";
+        if (mesageEmailRequired.isDisplayed()) {
+            actualMessageEmailRequired = mesageEmailRequired.getText();
+        } else {
             System.out.println("Not found WebElement: mesageEmailRequired");
         }
         return actualMessageEmailRequired;
     }
 
     public String getMessageEmailInvalid() {
-        String actualMessageEmailInvalid="";
-        if(messageEmailInvalid.isDisplayed()){
-            actualMessageEmailInvalid=messageEmailInvalid.getText();
-        }else{
+        String actualMessageEmailInvalid = "";
+        if (messageEmailInvalid.isDisplayed()) {
+            actualMessageEmailInvalid = messageEmailInvalid.getText();
+        } else {
             System.out.println("Not found WebElement: messageEmailInvalid");
         }
         return actualMessageEmailInvalid;
     }
 
     public String getMessagePasswordRequired() {
-        String actualMessagePasswordRequired="";
-        if(messagePasswordRequired.isDisplayed()){
-            actualMessagePasswordRequired=messagePasswordRequired.getText();
-        }else{
+        String actualMessagePasswordRequired = "";
+        if (messagePasswordRequired.isDisplayed()) {
+            actualMessagePasswordRequired = messagePasswordRequired.getText();
+        } else {
             System.out.println("Not found WebElement: messagePasswordRequired");
         }
         return actualMessagePasswordRequired;
