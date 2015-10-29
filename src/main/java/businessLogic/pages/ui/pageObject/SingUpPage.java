@@ -26,6 +26,8 @@ public class SingUpPage extends PageObject {
     @FindBy(xpath = "//*[@id='registerModal']//" +
             "label[@ng-show='registrationForm.password.$error.required']")
     private WebElementFacade messagePasswordRequired;
+    @FindBy(xpath = "//*[@id='registerModal']//*[@class='ng-binding ng-hide alert alert-danger']")//check selector!
+    private WebElementFacade messageSuccessfullyRegistration;
 
     public void setFieldLogin(String userName) {
         if (fieldLoginSingUp.isDisplayed()) {
@@ -104,5 +106,15 @@ public class SingUpPage extends PageObject {
             System.out.println("Not found WebElement: messagePasswordRequired");
         }
         return actualMessagePasswordRequired;
+    }
+
+    public String getMessageSuccessfullyRegistration(){
+        String actualMessageSuccessfullyRegistration="";
+        if(messageSuccessfullyRegistration.isDisplayed()){
+            messageSuccessfullyRegistration.getText();
+        }else{
+            System.out.println("Not found WebElement: messageSuccessfullyRegistration");
+        }
+        return  actualMessageSuccessfullyRegistration;
     }
 }

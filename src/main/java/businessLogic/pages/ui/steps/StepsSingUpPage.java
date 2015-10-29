@@ -32,4 +32,10 @@ public class StepsSingUpPage {
         String expected = "Password is required";
         assertThat(singUpPage.getMessagePasswordRequired()).isEqualTo(expected);
     }
+
+    @Step
+    public void checkMessageSuccessfullyRegistration(String actualMessageSuccessfullyRegistration){
+        String expected = "User has been registered successfully, you will be redicted to login page in 2 seconds";
+        assertThat(singUpPage.getMessageSuccessfullyRegistration()).isEqualTo(expected);
+    }
 }
