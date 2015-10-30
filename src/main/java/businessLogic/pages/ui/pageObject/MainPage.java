@@ -8,30 +8,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("http://ecsc00101f71.epam.com/")
 public class MainPage extends PageObject {
-    //menu
-    @FindBy(xpath = "//a[@href='/']")
-    private WebElementFacade mainPageLink;
-    @FindBy(xpath = "//a[@href='/books']")
-    private WebElementFacade booksPageLink;
-    @FindBy(xpath = "//a[@href='/authors']")
-    private WebElementFacade authorsPageLink;
-    @FindBy(xpath = "//a[@href='/publishers']")
-    private WebElementFacade publishersPageLink;
-    @FindBy(xpath = "//*[@id='bs-example-navbar-collapse-1']//a[@href='#']")
-    private WebElementFacade genresDropdownMenu;//create method for dropdown menu!!
-    @FindBy(xpath = "//a[@href='/help']")
-    private WebElementFacade apiLink; // can change!
-    @FindBy(xpath = "//a[@href='/login']")
-    private WebElementFacade loginLink;
-    @FindBy(xpath = "//a[@href='/registration']")
-    private WebElementFacade registrationLink;
-    //search block
-    @FindBy(id = "searchSelector")
-    private WebElementFacade searchSelectorDropdown;
-    @FindBy(xpath = "//input[@ng-model='search.query']")
-    private WebElementFacade searchField;
-    @FindBy(xpath = "//button[@ng-click='search.sendRequest()']")
-    private WebElementFacade searchButton;
     //Books with the highest rating   -->need to refactor xpath
     //@FindBy(xpath = "//ng-view//h1")  //*******for check context??
     //private WebElementFacade sectionHigestRatingBooks;
@@ -73,11 +49,4 @@ public class MainPage extends PageObject {
     @FindBy(className = "col-md-12 bg-success")
     private WebElementFacade footerMainPage;
 
-    public void clickMainPageLink() {
-        if (mainPageLink.isDisplayed()) {
-            mainPageLink.click();
-        } else {
-            System.out.println("Not found WebElement: mainPageLink");
-        }
-    }
 }
