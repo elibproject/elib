@@ -1,35 +1,53 @@
 package businessLogic.pages.ui.steps;
 
 
-import businessLogic.pages.ui.pageObject.SingUpPage;
+import businessLogic.pages.ui.pageObject.SingUpAndInPage;
 import net.thucydides.core.annotations.Step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class StepsSingUpPage {
-    SingUpPage singUpPage;
+    SingUpAndInPage singUpAndInPage;
 
     @Step
-    public void checkContextMessageUserName(String actualMessageUserName) {
+    public void checkMessageLoginEmptySingUp(String actualMessageUserName) {
         String expected = "Username is required";
-        assertThat(singUpPage.getMessageUserNameRequired()).isEqualTo(expected);
+        assertThat(singUpAndInPage.getMessageLoginRequiredSingUp()).isEqualTo(expected);
     }
 
     @Step
     public void checkMessageEmailRequired(String actualMessageEmailRequired) {
         String expected = "Email is required";
-        assertThat(singUpPage.getMessageEmailRequired()).isEqualTo(expected);
+        assertThat(singUpAndInPage.getMessageEmailRequired()).isEqualTo(expected);
     }
 
     @Step
     public void checkMessageEmailInvalid(String actualMessageEmailInvalid) {
         String expected = "Invalid email address";
-        assertThat(singUpPage.getMessageEmailInvalid()).isEqualTo(expected);
+        assertThat(singUpAndInPage.getMessageEmailInvalid()).isEqualTo(expected);
     }
 
     @Step
-    public void checkMessagePasswordRequired(String actualMessagePasswordRequired) {
+    public void checkMessagePasswordEmpty(String actualMessagePasswordRequired) {
         String expected = "Password is required";
-        assertThat(singUpPage.getMessagePasswordRequired()).isEqualTo(expected);
+        assertThat(singUpAndInPage.getMessagePasswordEmptySingUp()).isEqualTo(expected);
+    }
+
+    @Step
+    public void checkMessageLoginEmptySingIn(String actualMessageLoginSingIn){
+        String expected ="Username is required";
+        assertThat(singUpAndInPage.getMessageLoginRequiredSingIn()).isEqualTo(expected);
+    }
+
+    @Step
+    public void checkMessagePasswordEmptySingIn(String actualMessagePasswordRequiredSingIn){
+        String expected="Password is required";
+        assertThat(singUpAndInPage.getMessagePasswordRequiredSingIn()).isEqualTo(expected);
+    }
+
+    @Step
+    public void checkMessagePasswordWrongSingIn(String actualMessagePasswordRequiredSingIn){
+        String expected="Login is failed";//why message is show only login . Can change
+        assertThat(singUpAndInPage.getMessageWrongDataSingIn()).isEqualTo(expected);
     }
 }
