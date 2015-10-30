@@ -3,8 +3,11 @@ package businessLogic.pages.ui.pageObject;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
+
 import java.util.List;
 
+@DefaultUrl("http://ecsc00101f71.epam.com/books")
 public class BookPage extends PageObject {
 
     @FindBy(xpath = "//li[1]/span[1]")
