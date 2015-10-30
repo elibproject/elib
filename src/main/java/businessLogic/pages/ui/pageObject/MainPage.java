@@ -8,35 +8,37 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("http://ecsc00101f71.epam.com/")
 public class MainPage extends PageObject {
-    @FindBy(linkText = "ELib")
-    private WebElementFacade linkElibMain;
-    @FindBy(linkText = "Books")
-    private WebElementFacade linkBooksPage;
-    @FindBy(linkText = "Authors")
-    private WebElementFacade linkAuthorsPage;
-    @FindBy(linkText = "Publishers")
-    private WebElementFacade linkPublishersPage;
-    @FindBy(className = "dropdown")
-    private WebElementFacade dropdownMenuGenres;
-    @FindBy(linkText = "API")
-    private WebElementFacade linkApi;
-    @FindBy(linkText = "Sign In")
-    private WebElementFacade linkSingIn;
-    @FindBy(linkText = "Sign Up")
-    private WebElementFacade linkSingUp;
+    //menu
+    @FindBy(xpath = "//a[@href='/']")
+    private WebElementFacade mainPageLink;
+    @FindBy(xpath = "//a[@href='/books']")
+    private WebElementFacade booksPageLink;
+    @FindBy(xpath = "//a[@href='/authors']")
+    private WebElementFacade authorsPageLink;
+    @FindBy(xpath = "//a[@href='/publishers']")
+    private WebElementFacade publishersPageLink;
+    @FindBy(xpath = "//*[@id='bs-example-navbar-collapse-1']//a[@href='#']")
+    private WebElementFacade genresDropdownMenu;//create method for dropdown menu!!
+    @FindBy(xpath = "//a[@href='/help']")
+    private WebElementFacade apiLink; // can change!
+    @FindBy(xpath = "//a[@href='/login']")
+    private WebElementFacade loginLink;
+    @FindBy(xpath = "//a[@href='/registration']")
+    private WebElementFacade registrationLink;
+    //search block
     @FindBy(id = "searchSelector")
-    private WebElementFacade dropdownSearchSelector;
-    @FindBy(xpath = "//form//input")
+    private WebElementFacade searchSelectorDropdown;
+    @FindBy(xpath = "//input[@ng-model='search.query']")
     private WebElementFacade searchField;
-    @FindBy(className = "btn btn-sm btn-default")
-    private WebElementFacade buttonSubmit;
-    //Books with the highest rating
-    @FindBy(xpath = "//ng-view//h1")
-    private WebElementFacade sectionHigestRatingBooks;
+    @FindBy(xpath = "//button[@ng-click='search.sendRequest()']")
+    private WebElementFacade searchButton;
+    //Books with the highest rating   -->need to refactor xpath
+    //@FindBy(xpath = "//ng-view//h1")  //*******for check context??
+    //private WebElementFacade sectionHigestRatingBooks;
     @FindBy(xpath = "//ng-view//ul/li[1]/a")
-    private WebElementFacade buttonPreviousSectionHigestRating;
+    private WebElementFacade previousHigestRatingButton;
     @FindBy(xpath = "//ng-view//ul/li[2]/a")
-    private WebElementFacade buttonNextSectionHigestRating;
+    private WebElementFacade nextHigestRatingbutton;
     @FindBy(xpath = "//ng-view//div[1]/figure")
     private WebElementFacade oneBookHigestRating;
     @FindBy(xpath = "//ng-view//div[2]/figure")
@@ -49,7 +51,7 @@ public class MainPage extends PageObject {
     private WebElementFacade fiveBookHigestRating;
     @FindBy(xpath = "//ng-view//div[6]/figure")
     private WebElementFacade sixBookHigestRating;
-    //New books
+    //New books -->need to refactor xpath
     @FindBy(xpath = "//ng-view/div/h1")
     private WebElementFacade sectionNewBooks;
     @FindBy(xpath = "//div[1]/div[2]/ng-view//ul/li[1]/a")
@@ -70,4 +72,12 @@ public class MainPage extends PageObject {
     private WebElementFacade sixNewBooks;
     @FindBy(className = "col-md-12 bg-success")
     private WebElementFacade footerMainPage;
+
+    public void clickMainPageLink() {
+        if (mainPageLink.isDisplayed()) {
+            mainPageLink.click();
+        } else {
+            System.out.println("Not found WebElement: mainPageLink");
+        }
+    }
 }
