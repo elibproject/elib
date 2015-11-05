@@ -4,7 +4,6 @@ package addContentForTesting;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
-import org.apache.poi.ss.extractor.ExcelExtractor;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -37,43 +36,7 @@ public class ActionWithFile {
             }
             System.out.println();
         }
-        ExcelExtractor extractor = new ExcelExtractor(wb)
-        extractor.setFormulasNotResults(false); // Считать формулы
-        extractor.setIncludeSheetNames(true);
-        String[] text = extractor.getText();
-        System.out.println(text);
-        {
-            // @Override
-            //  public String getText() {
-            //      return null;
-            //    }
-
-        }
-
-
-
     }
-
-/*public class ActionWithFile {
-
-    public static void readExcelFile(String File)throws IOException {
-        HSSFWorkbook myExcelBook = new HSSFWorkbook(new FileInputStream("C:/Users/Iryna_Koryttseva/IdeaProjects/elib/src/main/resources/listTestText.xls"));
-        HSSFSheet myExcelSheet = myExcelBook.getSheet("Birthdays");
-        HSSFRow row = myExcelSheet.getRow(0);
-
-        if(row.getCell(0).getCellType() == HSSFCell.CELL_TYPE_STRING){
-            String name = row.getCell(0).getStringCellValue();
-            System.out.println("name : " + name);
-        }
-
-        if(row.getCell(1).getCellType() == HSSFCell.CELL_TYPE_NUMERIC){
-            Date birthdate = row.getCell(1).getDateCellValue();
-            System.out.println("birthdate :" + birthdate);
-        }
-
-        myExcelBook.close();
-    }*/
-//}*/
-
+}
 
 
