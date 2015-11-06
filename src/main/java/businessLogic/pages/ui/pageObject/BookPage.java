@@ -3,8 +3,6 @@ package businessLogic.pages.ui.pageObject;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
-import org.openqa.selenium.By;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -70,113 +68,194 @@ public class BookPage extends PageObject {
     public boolean checkPresenceOfArrow(String value) {
         boolean presence = false;
         switch (value) {
-            case "Title": presence = arrowList.get(0).isPresent();
-            case "Year": presence = arrowList.get(1).isPresent();
-            case "Authors": presence = arrowList.get(2).isPresent();
-            case "Publishers": presence = arrowList.get(3).isPresent();
-            case "Rating": presence = arrowList.get(4).isPresent();
-            case "Date": presence = arrowList.get(5).isPresent();
+            case "Title":
+                presence = arrowList.get(0).isPresent();
+            case "Year":
+                presence = arrowList.get(1).isPresent();
+            case "Authors":
+                presence = arrowList.get(2).isPresent();
+            case "Publishers":
+                presence = arrowList.get(3).isPresent();
+            case "Rating":
+                presence = arrowList.get(4).isPresent();
+            case "Date":
+                presence = arrowList.get(5).isPresent();
         }
         return presence;
     }
 
     public boolean checkCorrectBookOrdering(String value) throws ParseException {
-        Collator myCollator = Collator.getInstance();
+//        Collator myCollator = Collator.getInstance();
         String s1 = new String();
         String s2 = new String();
         Date date1 = new Date();
         Date date2 = new Date();
         boolean b = false;
-        int result = 0;
+//        int result = 0;
         for (int i = 1; i < booksList.size(); i++) {
             switch (value) {
                 case "Authors":
-                    s1 = booksList.get(i).findElement((By) titleField).getText();
-                    s2 = booksList.get(i - 1).findElement((By) titleField).getText();
+                    bookOrder(authorList, b);
+//                    s1 = booksList.get(i).findElement((By) titleField).getText();
+//                    s2 = booksList.get(i - 1).findElement((By) titleField).getText();
                 case "Year":
-                    s1 = booksList.get(i).findElement((By) yearField).getText();
-                    s2 = booksList.get(i - 1).findElement((By) yearField).getText();
+                    bookOrder(yearList, b);
+//                    s1 = booksList.get(i).findElement((By) yearField).getText();
+//                    s2 = booksList.get(i - 1).findElement((By) yearField).getText();
                 case "Title":
-                    s1 = booksList.get(i).findElement((By) authorField).getText();
-                    s2 = booksList.get(i - 1).findElement((By) authorField).getText();
+                    bookOrder(authorList, b);
+//                    s1 = booksList.get(i).findElement((By) authorField).getText();
+//                    s2 = booksList.get(i - 1).findElement((By) authorField).getText();
                 case "Publishers":
-                    s1 = booksList.get(i).findElement((By) publisherField).getText();
-                    s2 = booksList.get(i - 1).findElement((By) publisherField).getText();
+                    bookOrder(publisherList, b);
+//                    s1 = booksList.get(i).findElement((By) publisherField).getText();
+//                    s2 = booksList.get(i - 1).findElement((By) publisherField).getText();
                 case "Rating":
-                    s1 = booksList.get(i).findElement((By) ratingField).getText();
-                    s2 = booksList.get(i - 1).findElement((By) ratingField).getText();
+                    bookOrder(ratingList, b);
+//                    s1 = booksList.get(i).findElement((By) ratingField).getText();
+//                    s2 = booksList.get(i - 1).findElement((By) ratingField).getText();
                 case "Date":
-                    s1 = booksList.get(i).findElement((By) dateField).getText();
-                    s2 = booksList.get(i - 1).findElement((By) dateField).getText();
-                    DateFormat format = new SimpleDateFormat("MM/dd/yy hh:mm a", Locale.ENGLISH);
-                    date1 = format.parse(s1);
-                    date2 = format.parse(s2);
+                    bookOrderByDate(dateList, b);
+//                    s1 = booksList.get(i).findElement((By) dateField).getText();
+//                    s2 = booksList.get(i - 1).findElement((By) dateField).getText();
+//                    DateFormat format = new SimpleDateFormat("MM/dd/yy hh:mm a", Locale.ENGLISH);
+//                    date1 = format.parse(s1);
+//                    date2 = format.parse(s2);
             }
-
-            if (date1 != null) {
-                result = date2.compareTo(date1);
-            } else result = myCollator.compare(s1, s2);
-            if (result >= 0) b = true;
-            else break;
+//
+//            if (date1 != null) {
+//                result = date2.compareTo(date1);
+//            } else result = myCollator.compare(s1, s2);
+//            if (result >= 0) b = true;
+//            else break;
         }
         return b;
     }
 
     public boolean checkNullBookOrder(String value) {
-        String s;
-        String s2;
-        boolean b = true;
+        boolean b = false;
         booksPerPageDropdownMenu.selectByValue("100");
         switch (value) {
             case "Title":
-                for (int i = 0; i < titleList.size(); i++) {
-                    s = titleList.get(i).getText();
-                    s2 = titleList.get(i + 1).getText();
-                    if ((s.isEmpty()) && !s2.isEmpty()) {
-                        b = false;
-                    }
-                }
+                endsWithNulls(titleList, b);
+//                for (int i = 0; i < titleList.size(); i++) {
+//                    s = titleList.get(i).getText();
+//                    s2 = titleList.get(i + 1).getText();
+//                    if ((s.isEmpty()) && !s2.isEmpty()) {
+//                        b = false;
+//                    }
+//                }
             case "Year":
-                for (int i = 0; i < yearList.size(); i++) {
-                    s = yearList.get(i).getText();
-                    s2 = yearList.get(i + 1).getText();
-                    if ((s.isEmpty()) && !s2.isEmpty()) {
-                        b = false;
-                    }
-                }
+                endsWithNulls(yearList, b);
+//                for (int i = 0; i < yearList.size(); i++) {
+//                    s = yearList.get(i).getText();
+//                    s2 = yearList.get(i + 1).getText();
+//                    if ((s.isEmpty()) && !s2.isEmpty()) {
+//                        b = false;
+//                    }
+//                }
             case "Authors":
-                for (int i = 0; i < authorList.size(); i++) {
-                    s = authorList.get(i).getText();
-                    s2 = authorList.get(i + 1).getText();
-                    if ((s.isEmpty()) && !s2.isEmpty()) {
-                        b = false;
-                    }
-                }
+                endsWithNulls(authorList, b);
+//                for (int i = 0; i < authorList.size(); i++) {
+//                    s = authorList.get(i).getText();
+//                    s2 = authorList.get(i + 1).getText();
+//                    if ((s.isEmpty()) && !s2.isEmpty()) {
+//                        b = false;
+//                    }
+//                }
             case "Publishers":
-                for (int i = 0; i < publisherList.size(); i++) {
-                    s = publisherList.get(i).getText();
-                    s2 = publisherList.get(i + 1).getText();
-                    if ((s.isEmpty()) && !s2.isEmpty()) {
-                        b = false;
-                    }
-                }
+                endsWithNulls(publisherList, b);
+//                for (int i = 0; i < publisherList.size(); i++) {
+//                    s = publisherList.get(i).getText();
+//                    s2 = publisherList.get(i + 1).getText();
+//                    if ((s.isEmpty()) && !s2.isEmpty()) {
+//                        b = false;
+//                    }
+//                }
             case "Rating":
-                for (int i = 0; i < ratingList.size(); i++) {
-                    s = ratingList.get(i).getText();
-                    s2 = ratingList.get(i + 1).getText();
-                    if ((s.isEmpty()) && !s2.isEmpty()) {
-                        b = false;
-                    }
-                }
+                endsWithNulls(ratingList, b);
+//                for (int i = 0; i < ratingList.size(); i++) {
+//                    s = ratingList.get(i).getText();
+//                    s2 = ratingList.get(i + 1).getText();
+//                    if ((s.isEmpty()) && !s2.isEmpty()) {
+//                        b = false;
+//                    }
+//                }
             case "Date":
-                for (int i = 0; i < dateList.size(); i++) {
-                    s = dateList.get(i).getText();
-                    s2 = dateList.get(i + 1).getText();
-                    if ((s.isEmpty()) && !s2.isEmpty()) {
-                        b = false;
+                endsWithNulls(dateList, b);
+//                for (int i = 0; i < dateList.size(); i++) {
+//                    s = dateList.get(i).getText();
+//                    s2 = dateList.get(i + 1).getText();
+//                    if ((s.isEmpty()) && !s2.isEmpty()) {
+//                        b = false;
+//                    }
+//                }
+//        }
+        }
+        return b;
+    }
+
+    public static boolean endsWithNulls(List<WebElementFacade> lst, boolean b) {
+        int indexOfFirstNull = lst.indexOf(null);
+        if (indexOfFirstNull == -1) {
+            b = true;
+        } else {
+            if (lst == null || lst.isEmpty()) {
+                b = false;
+            }
+            boolean nullsFinished = false;
+            for (int i = lst.size() - 1; i >= 0; i--) {
+                if (lst.get(i) != null) {
+                    nullsFinished = true;
+                    b = true;
+                } else {
+                    if (nullsFinished) {
+                        return false;
                     }
                 }
             }
+        }
+        return b;
+    }
+
+    public static boolean bookOrderByDate(List<WebElementFacade> lst, boolean b) throws ParseException {
+        int result;
+        String s1 = new String();
+        String s2 = new String();
+        Date date1 = new Date();
+        Date date2 = new Date();
+        for (int i = 1; i < lst.size(); i++) {
+            s1 = lst.get(i).getText();
+            s2 = lst.get(i - 1).getText();
+            DateFormat format = new SimpleDateFormat("MM/dd/yy hh:mm a", Locale.ENGLISH);
+            date1 = format.parse(s1);
+            date2 = format.parse(s2);
+            result = date2.compareTo(date1);
+            if (result >= 0) b = true;
+            else {
+                b = false;
+                break;
+            }
+        }
+        return b;
+    }
+
+    public static boolean bookOrder(List<WebElementFacade> lst, boolean b){
+        Collator myCollator = Collator.getInstance();
+        int result;
+        String s1 = new String();
+        String s2 = new String();
+        for(int i = 1; i< lst.size(); i++) {
+            s1 = lst.get(i).getText();
+            s2 = lst.get(i-1).getText();
+            result = myCollator.compare(s1, s2);
+            if (result >= 0) b = true;
+            else {
+                b = false;
+                break;
+            }
+        }
         return b;
     }
 }
+
