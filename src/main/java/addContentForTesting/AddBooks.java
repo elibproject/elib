@@ -31,14 +31,14 @@ public class AddBooks {
         for (int i = 0; i < 5; i++) {
             driver.findElement(By.xpath("//*[@id='title']")).sendKeys("TestBooks");
             driver.findElement(By.xpath("//*[@id='publishLang']")).click();
-            driver.findElement(By.xpath("//*[@id='publishLang']//option[@value='1']")).isSelected();
+            driver.findElement(By.xpath("//*[@id='publishLang']//option[@value='2']")).isSelected();
             driver.findElement(By.xpath("//*[@id='publisher']")).click();
             driver.findElement(By.xpath("//*[@id='publisher']//option[@value='26']")).isSelected();
             driver.findElement(By.xpath("//*[@id='publishYear']")).clear();
-            driver.findElement(By.xpath("//*[@id='publishYear']")).sendKeys("2010");
             //driver.findElement(By.xpath("//*[@id='subgenre']")).click();
-            driver.findElement(By.xpath("//*[@id='subgenre']//option[@value='2']")).isSelected();
+            driver.findElement(By.xpath("//*[@id='subgenre']//option[@value='3']")).isSelected();
             driver.findElement(By.xpath("//*[@id='submit']")).click();
+            driver.findElement(By.xpath("//*[@id='publishYear']")).sendKeys("0010");
             driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         }
     }
