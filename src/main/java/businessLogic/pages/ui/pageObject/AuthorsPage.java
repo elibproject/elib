@@ -8,6 +8,7 @@ import java.text.Collator;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -64,11 +65,11 @@ public class AuthorsPage extends PageObject {
         for (int i = 1; i < authorList.size(); i++) {
             switch (value) {
                 case "FirstName":
-                    bookOrder(firstAndSecondNameList, b);
+                    bookOrder(firstNameGetter(firstAndSecondNameList), b);
 //                    s1 = booksList.get(i).findElement((By) titleField).getText();
 //                    s2 = booksList.get(i - 1).findElement((By) titleField).getText();
                 case "LastName":
-                    bookOrder(firstAndSecondNameList, b);
+                    bookOrder(lastNameGetter(firstAndSecondNameList), b);
 //                    s1 = booksList.get(i).findElement((By) yearField).getText();
 //                    s2 = booksList.get(i - 1).findElement((By) yearField).getText();
                 case "DateOfBirth":
@@ -88,6 +89,9 @@ public class AuthorsPage extends PageObject {
         }
         return b;
     }
+
+
+
 
     public boolean checkNullBookOrder(String value) {
         boolean b = false;
@@ -169,14 +173,14 @@ public class AuthorsPage extends PageObject {
         return b;
     }
 
-    public static boolean bookOrder(List<WebElementFacade> lst, boolean b){
+    public static boolean bookOrder(List<String> lst, boolean b){
         Collator myCollator = Collator.getInstance();
         int result;
         String s1 = new String();
         String s2 = new String();
         for(int i = 1; i< lst.size(); i++) {
-            s1 = lst.get(i).getText();
-            s2 = lst.get(i-1).getText();
+            s1 = lst.get(i);
+            s2 = lst.get(i-1);
             result = myCollator.compare(s1, s2);
             if (result >= 0) b = true;
             else {
@@ -185,5 +189,28 @@ public class AuthorsPage extends PageObject {
             }
         }
         return b;
+    }
+    public static List<String> firstNameGetter(List<WebElementFacade> lst) {
+        String s1;
+        List<String> lst1 = new ArrayList<String>();
+        int a;
+        for(int i = 0; i < lst.size(); i++){
+            a = lst.get(i).getText().indexOf(" ");
+            s1 = lst.get(i).getText().substring(0, a);
+            lst1.add(i, s1);
+        }
+        return lst1;
+    }
+
+    public static List<String> lastNameGetter(List<WebElementFacade> lst) {
+        String s1;
+        List<String> lst1 = new ArrayList<String>();
+        int a;
+        for(int i = 0; i < lst.size(); i++){
+            a = lst.get(i).getText().indexOf(" ");
+            s1 = lst.get(i).getText().substring(a+1);
+            lst1.add(i, s1);
+        }
+        return lst1;
     }
 }

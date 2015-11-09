@@ -7,6 +7,7 @@ import java.text.Collator;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -95,7 +96,7 @@ public class BookPage extends PageObject {
         for (int i = 1; i < booksList.size(); i++) {
             switch (value) {
                 case "Authors":
-                    bookOrder(authorList, b);
+                    bookOrderForAuthor(stringConvert(authorList), b);
 //                    s1 = booksList.get(i).findElement((By) titleField).getText();
 //                    s2 = booksList.get(i - 1).findElement((By) titleField).getText();
                 case "Year":
@@ -240,14 +241,14 @@ public class BookPage extends PageObject {
         return b;
     }
 
-    public static boolean bookOrder(List<WebElementFacade> lst, boolean b){
+    public static boolean bookOrder(List<WebElementFacade> lst, boolean b) {
         Collator myCollator = Collator.getInstance();
         int result;
         String s1 = new String();
         String s2 = new String();
-        for(int i = 1; i< lst.size(); i++) {
+        for (int i = 1; i < lst.size(); i++) {
             s1 = lst.get(i).getText();
-            s2 = lst.get(i-1).getText();
+            s2 = lst.get(i - 1).getText();
             result = myCollator.compare(s1, s2);
             if (result >= 0) b = true;
             else {
@@ -257,5 +258,36 @@ public class BookPage extends PageObject {
         }
         return b;
     }
-}
 
+    public static boolean bookOrderForAuthor(List<String> lst, boolean b) {
+        Collator myCollator = Collator.getInstance();
+        int result;
+        String s1 = new String();
+        String s2 = new String();
+        for (int i = 1; i < lst.size(); i++) {
+            s1 = lst.get(i);
+            s2 = lst.get(i - 1);
+            result = myCollator.compare(s1, s2);
+            if (result >= 0) b = true;
+            else {
+                b = false;
+                break;
+            }
+        }
+        return b;
+    }
+
+    public static List<String> stringConvert(List<WebElementFacade> lst) {
+        String s1;
+        String s2;
+        List<String> lst1 = new ArrayList<String>();
+        int a;
+        for (int i = 0; i < lst.size(); i++) {
+            s1 = lst.get(i).getText();
+            a = s1.indexOf(" ");
+            s2 = s1.substring(a + 1);
+            lst1.add(i, s2);
+        }
+        return lst1;
+    }
+}
